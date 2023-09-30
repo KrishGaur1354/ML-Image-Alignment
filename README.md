@@ -36,7 +36,7 @@ pip install opencv-python-headless flask jupyter ipywidgets
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/image-alignment.git
+   git clone https://github.com/KrishGaur1354/ML-Image-Alignment.git
    ```
 
 2. Navigate to the repository folder:
