@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload and Processing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            border: 2px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #e0e0e0;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Reference Form and Scanned Form</h1>
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            <label for="ref_image">Upload Reference Form:</label>
+            <label class="custom-file-upload">
+                <input type="file" name="ref_image" accept=".jpg"> Choose File
+            </label>
+            <br>
+            <label for="scanned_image">Upload Scanned Form:</label>
+            <label class="custom-file-upload">
+                <input type="file" name="scanned_image" accept=".jpg"> Choose File
+            </label>
+            <br>
+            <input type="submit" value="Process Images">
+        </form>
+    </div>
+</body>
+</html>

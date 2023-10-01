@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Processing Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        div {
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Processing Result</h1>
+    <p>The images have been processed and aligned:</p>
+    <div>
+        <h2>Aligned Scanned Form</h2>
+        <img src="{{ url_for('static', filename=processed_image) }}" alt="Aligned Scanned Form">
+    </div>
+    <div>
+        <h2>Download Processed Image</h2>
+        <a href="{{ url_for('download_image') }}" class="btn">Download PDF</a>
+    </div>
+</body>
+</html>
