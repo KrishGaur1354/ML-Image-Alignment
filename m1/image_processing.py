@@ -6,15 +6,15 @@ def auto_crop_and_correct(ref_image, scanned_image):
     ref_gray = cv2.cvtColor(ref_image, cv2.COLOR_RGB2GRAY)
     scanned_gray = cv2.cvtColor(scanned_image, cv2.COLOR_RGB2GRAY)
 
-    # Create ORB detectors
-    orb = cv2.ORB_create()
+    # Create SIFT detector
+    sift = cv2.SIFT_create()
 
     # Find keypoints and descriptors
-    keypoints1, descriptors1 = orb.detectAndCompute(ref_gray, None)
-    keypoints2, descriptors2 = orb.detectAndCompute(scanned_gray, None)
+    keypoints1, descriptors1 = sift.detectAndCompute(ref_gray, None)
+    keypoints2, descriptors2 = sift.detectAndCompute(scanned_gray, None)
 
     # Create a brute force matcher
-    bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+    bf = cv2.BFMatcher(cv2.NORM_L2, crossCheck=True)
 
     # Match descriptors
     matches = bf.match(descriptors1, descriptors2)
@@ -23,7 +23,7 @@ def auto_crop_and_correct(ref_image, scanned_image):
     matches = sorted(matches, key=lambda x: x.distance)
 
     # Choose the top N matches (you can adjust N as needed)
-    N = 50
+    N = 200
     good_matches = matches[:N]
 
     # Extract the matched keypoints
@@ -53,14 +53,14 @@ def process_images(ref_image, scanned_image):
     ref_gray = cv2.cvtColor(ref_image, cv2.COLOR_RGB2GRAY)
     scanned_gray = cv2.cvtColor(scanned_image, cv2.COLOR_RGB2GRAY)
 
-    # Detect ORB features and compute descriptors with an increased number of features
+    # Detect SIFT features and compute descriptors
     MAX_NUM_FEATURES = 10000  # Increase the number of features
-    orb = cv2.ORB_create(MAX_NUM_FEATURES)
-    keypoints1, descriptors1 = orb.detectAndCompute(ref_gray, None)
-    keypoints2, descriptors2 = orb.detectAndCompute(scanned_gray, None)
+    sift = cv2.SIFT_create(MAX_NUM_FEATURES)
+    keypoints1, descriptors1 = sift.detectAndCompute(ref_gray, None)
+    keypoints2, descriptors2 = sift.detectAndCompute(scanned_gray, None)
 
     # Match features
-    matcher = cv2.DescriptorMatcher_create(cv2.DESCRIPTOR_MATCHER_BRUTEFORCE_HAMMING)
+    matcher = cv2.BFMatcher(cv2.NORM_L2)
     matches = list(matcher.match(descriptors1, descriptors2, None))
 
     # Sort matches by score
