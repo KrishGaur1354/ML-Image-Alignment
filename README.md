@@ -2,7 +2,7 @@
 
 <img src='https://github.com/KrishGaur1354/ML-Image-Alignment/blob/main/image-aligned.png'>
 
-The script allows users to upload a reference form and a scanned form, and it aligns the scanned form to the reference form using ORB (Oriented FAST and Rotated BRIEF) feature matching.
+The script allows users to upload a reference form and a scanned form, and it aligns the scanned form to the reference form using ~~ORB (Oriented FAST and Rotated BRIEF)~~SIFT (Scale-Invariant Feature Transform) feature matching.
 
 ---
 
@@ -24,6 +24,7 @@ Before you begin, ensure you have the following requirements installed:
 - Flask
 - Jupyter Notebook (for the script)
 - ipywidgets and other required libraries (see script)
+- SIFT (Scale-Invariant Feature Transform)
 
 You can install the required Python libraries using `pip`. For example:
 
@@ -61,13 +62,13 @@ No additional installation is required for the Jupyter Notebook script. For the 
 
 ## How It Works
 
-The script and web application use OpenCV to align images based on ORB feature matching. Here's how it works:
+The script and web application use OpenCV to align images based on SIFT (Scale-Invariant Feature Transform) feature matching. Here's how it works:
 
 1. Users upload a reference form and a scanned form in the web application.
 
 2. The script reads and processes the uploaded images using OpenCV:
    - Converts images to grayscale.
-   - Detects ORB features and computes descriptors.
+   - Detects SIFT features and computes descriptors.
    - Matches features and filters out good matches.
    - Calculates a homography matrix for alignment.
    - Warps the scanned form to align with the reference form.
