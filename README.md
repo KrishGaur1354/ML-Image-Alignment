@@ -2,7 +2,7 @@
 
 <img src='https://github.com/KrishGaur1354/ML-Image-Alignment/blob/main/image-aligned.png'>
 
-The script allows users to upload a reference form and a scanned form, and it aligns the scanned form to the reference form using ~~ORB (Oriented FAST and Rotated BRIEF)~~SIFT (Scale-Invariant Feature Transform) feature matching.
+The script allows users to upload a reference form and a scanned form, and it aligns the scanned form to the reference form using ~~ORB (Oriented FAST and Rotated BRIEF)~~ SIFT (Scale-Invariant Feature Transform) feature matching.
 
 ---
 
