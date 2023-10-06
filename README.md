@@ -6,7 +6,7 @@ The script allows users to upload a reference form and a scanned form, and it al
 
 ---
 
-## Table of Contents
+## Table of Content
 
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
